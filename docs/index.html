@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>node-ptero</title>
+<meta name="description" content="Node.js 24.15.0 Docker image for Pterodactyl and Pelican game panels. Works on x64 and arm64.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2l12 7v14l-12 7-12-7V9z' fill='%235fa04e'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f7f8f6;--surface:#fff;--text:#1b1f1a;--muted:#5d665b;--border:#dfe3dc;
+  --accent:#3f7f33;--accent-soft:#e6f1e2;--code-bg:#f0f2ee;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#111410;--surface:#181c17;--text:#e7ebe5;--muted:#9aa596;--border:#2b3229;
+    --accent:#7cc26a;--accent-soft:#1f2e1b;--code-bg:#1f241d;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{padding:64px 0 32px}
+.badge{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);padding:4px 10px;border-radius:999px;margin-bottom:16px}
+h1{font-size:clamp(32px,6vw,44px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+.lede{font-size:18px;color:var(--muted);margin:0 0 28px;max-width:60ch}
+h2{font-size:22px;margin:48px 0 12px;letter-spacing:-.01em}
+h3{font-size:17px;margin:24px 0 8px}
+.muted{color:var(--muted)}
+a{color:var(--accent)}
+code{font:14px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--code-bg);
+  padding:2px 6px;border-radius:4px}
+.copy{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:10px 10px 10px 16px;max-width:100%}
+.copy code{background:none;padding:0;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;font-size:15px}
+button{font:inherit;font-size:14px;font-weight:600;cursor:pointer;border:0;border-radius:7px;
+  background:var(--accent);color:var(--bg);padding:7px 14px;flex-shrink:0}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.btn-link{display:inline-block;padding:9px 16px;border:1px solid var(--border);border-radius:8px;
+  text-decoration:none;color:var(--text);background:var(--surface);font-weight:600;font-size:15px}
+.btn-link:hover{border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;padding:0;list-style:none}
+.grid li{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.grid strong{display:block;margin-bottom:2px}
+.grid span{color:var(--muted);font-size:14px}
+pre{background:var(--code-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;
+  overflow-x:auto;font:14px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;margin:8px 0 16px}
+pre code{background:none;padding:0}
+ol{padding-left:22px}
+ol li{margin-bottom:8px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-top:8px}
+.tab{background:none;color:var(--muted);border-radius:0;padding:10px 14px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--text);border-bottom-color:var(--accent)}
+.panel[hidden]{display:none}
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:16px 0}
+footer{margin:64px 0 40px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="badge">Node.js 24.15.0 · x64 + arm64</span>
+    <h1>node-ptero</h1>
+    <p class="lede">A Node.js 24.15.0 Docker image for Pterodactyl and Pelican. A drop-in replacement for the official Pelican Node.js image, so the generic Node.js egg works without changes.</p>
+    <div class="copy">
+      <code id="image">ghcr.io/project-phil/node-ptero:24.15.0</code>
+      <button type="button" data-copy="image">Copy</button>
+    </div>
+    <div class="actions">
+      <a class="btn-link" href="https://github.com/Project-Phil/node-ptero">View on GitHub</a>
+      <a class="btn-link" href="https://github.com/orgs/Project-Phil/packages/container/package/node-ptero">Package</a>
+    </div>
+  </header>
+
+  <main>
+    <h2>What's included</h2>
+    <ul class="grid">
+      <li><strong>Node.js 24.15.0</strong><span>Official <code>node:24.15.0-trixie-slim</code> base, latest npm</span></li>
+      <li><strong>TypeScript</strong><span><code>tsx</code>, <code>typescript</code>, <code>ts-node</code>, <code>@types/node</code></span></li>
+      <li><strong>pnpm</strong><span>Enabled through corepack</span></li>
+      <li><strong>Native modules</strong><span>Build tools and python3 for <code>sqlite3</code>, <code>bcrypt</code> and similar</span></li>
+      <li><strong>Extras</strong><span>ffmpeg, git, sqlite3, curl, zip/unzip, network tools</span></li>
+      <li><strong>Any node</strong><span>Built for x64 (amd64) and arm64</span></li>
+    </ul>
+
+    <h2>Use it in your panel</h2>
+    <p class="muted">Import the generic Node.js egg, then add this image to it.</p>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-pelican" id="t-pelican">Pelican</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-ptero" id="t-ptero">Pterodactyl</button>
+    </div>
+    <section class="panel" id="p-pelican" role="tabpanel" aria-labelledby="t-pelican">
+      <ol>
+        <li>Download the egg: <a href="https://raw.githubusercontent.com/pelican-eggs/generic/refs/heads/main/nodejs/egg-nodejs-generic.yaml">egg-nodejs-generic.yaml</a></li>
+        <li>In the admin panel, go to <strong>Eggs → Import</strong> and upload it.</li>
+        <li>Open the egg, find <strong>Docker Images</strong> and add a new entry:
+          <pre><code>Name:  Nodejs 24.15.0
+Image: ghcr.io/project-phil/node-ptero:24.15.0</code></pre></li>
+        <li>On your server, go to <strong>Startup</strong> and select <strong>Nodejs 24.15.0</strong>.</li>
+      </ol>
+    </section>
+    <section class="panel" id="p-ptero" role="tabpanel" aria-labelledby="t-ptero" hidden>
+      <ol>
+        <li>Download the egg: <a href="https://raw.githubusercontent.com/pelican-eggs/generic/refs/heads/main/nodejs/egg-pterodactyl-nodejs-generic.json">egg-pterodactyl-nodejs-generic.json</a></li>
+        <li>In the admin panel, go to <strong>Nests</strong>, pick a nest and click <strong>Import Egg</strong>.</li>
+        <li>Open the egg and add this line to <strong>Docker Images</strong>:
+          <pre><code>Nodejs 24.15.0|ghcr.io/project-phil/node-ptero:24.15.0</code></pre></li>
+        <li>On your server, go to <strong>Startup</strong> and select <strong>Nodejs 24.15.0</strong>.</li>
+      </ol>
+    </section>
+    <div class="note">The egg's startup command runs as normal. Variables like <code>{{SERVER_PORT}}</code> are filled in, and <code>INTERNAL_IP</code> is set for your app.</div>
+
+    <h2>Build it yourself</h2>
+    <h3>With GitHub Actions</h3>
+    <p>Fork the repo. The included workflow builds for x64 and arm64 and pushes to <code>ghcr.io/&lt;you&gt;/node-ptero</code> whenever the <code>Dockerfile</code> changes, or when you run it from the Actions tab. No secrets needed.</p>
+    <h3>With Docker</h3>
+    <pre><code>git clone https://github.com/Project-Phil/node-ptero.git
+cd node-ptero
+docker login ghcr.io -u &lt;YOUR_GITHUB_USERNAME&gt;
+docker buildx create --use
+docker buildx build --platform linux/amd64,linux/arm64 \
+  -t ghcr.io/&lt;your-username-lowercase&gt;/node-ptero:24.15.0 --push .</code></pre>
+    <p class="muted">Image names on ghcr.io must be lowercase.</p>
+
+    <h3>Changing the Node.js version</h3>
+    <p>Change the tag on the <code>FROM</code> line in the <code>Dockerfile</code> (for example <code>node:24.16.0-trixie-slim</code>) and the <code>version</code> label. The workflow tags the image with that version automatically.</p>
+  </main>
+
+  <footer>
+    node-ptero by Project-Phil · based on Plux Modifications' node-ptero and the Pelican yolks
+  </footer>
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = document.getElementById(btn.dataset.copy).textContent;
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(text).then(function () {
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+    }, function () {});
+  });
+});
+var tabs = document.querySelectorAll('.tab');
+tabs.forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on);
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  });
+});
+</script>
+</body>
+</html>
